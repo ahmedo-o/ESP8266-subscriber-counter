@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<head>
+    <title>WiFi Configuration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body,
+        html {
+            height: 90%;
+        }
+
+        #main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 100%;
+        }
+
+        input {
+            margin: 1em;
+        }
+
+        input[type=text],
+        input[type=password] {
+            padding: .75em;
+        }
+
+        input[type=submit] {
+            border: none;
+            color: white;
+            background-color: #0d6efd;
+            border-radius: 7px;
+            width: 90%;
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <form method="post">
+            <div>
+                <h2>WiFi Configuration</h2>
+                <div>
+                    <input type="text" name="ssid" placeholder="SSID" value="%ssid%">
+                    <br>
+                    <input type="password" name="pass" placeholder="Password" id="password-input" value="%pass%">
+                    <br>
+                    <label>Show password</label> <input type="checkbox" id="show-password">
+                </div>
+            </div>
+            <div>
+                <h2>YouTube Configuration</h2>
+                <div>
+                    <input type="password" name="api_key" placeholder="YouTube API Key" id="key-input" value="%api_key%">
+                    <br>
+                    <label>Show key</label> <input type="checkbox" id="show-key">
+                    <br>
+                    <input type="text" name="channel_id" placeholder="Channel ID" value="%channel_id%">
+                    <br>
+                    <input type="text" name="text" placeholder="Optional Text" value="%text%">
+                </div>
+            </div>
+            <input type="submit" value="Save">
+        </form>
+    </div>
+    <script>
+        document.getElementById('show-password').addEventListener('change', (event) => { document.getElementById('password-input').type = (event.target.checked ? 'text' : 'password'); }); 
+        document.getElementById('show-key').addEventListener('change', (event) => { document.getElementById('key-input').type = (event.target.checked ? 'text' : 'password'); }); 
+    </script>
+</body>
+
+</html>
